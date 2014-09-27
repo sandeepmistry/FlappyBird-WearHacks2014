@@ -146,7 +146,7 @@
 
 - (void)df1Manager:(DF1Manager *)manager didDiscover:(DF1 *)df1
 {
-    if (![@"2916E8EE-9355-0A8A-1FFC-08CAEB19D201" isEqualToString:df1.uuid]) {
+    if (![@"2916E8EE-9355-0A8A-1FFC-08CAEB19D201" isEqualToString:df1.uuid] && ![@"3C597EEF-B63E-4A91-36D7-908C1D9EEB52" isEqualToString:df1.uuid]) {
         return;
     }
     
