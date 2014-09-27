@@ -15,7 +15,7 @@
 #define FLOOR_SCROLLING_SPEED 3
 
 // Obstacles
-#define VERTICAL_GAP_SIZE 120
+#define VERTICAL_GAP_SIZE 400 //120
 #define FIRST_OBSTACLE_PADDING 100
 #define OBSTACLE_MIN_HEIGHT 60
 #define OBSTACLE_INTERVAL_SPACE 130
@@ -151,11 +151,11 @@ static bool wasted = NO;
                 [self.delegate eventPlay];
             }
         }
-        [bird bounce];
+        [bird bounce:40];
     }
 }
 
-- (void)flapDetected
+- (void)flapDetected:(float)impulse;
 {
     if(wasted){
         [self startGame];
@@ -166,7 +166,7 @@ static bool wasted = NO;
                 [self.delegate eventPlay];
             }
         }
-        [bird bounce];
+        [bird bounce:impulse];
     }
 }
 
@@ -218,8 +218,8 @@ static bool wasted = NO;
 {
     // Maths
     float availableSpace = HEIGHT(self) - HEIGHT(floor);
-    float maxVariance = availableSpace - (2*OBSTACLE_MIN_HEIGHT) - VERTICAL_GAP_SIZE;
-    float variance = [Math randomFloatBetween:0 and:maxVariance];
+    float maxVariance = 0;//availableSpace - (2*OBSTACLE_MIN_HEIGHT) - VERTICAL_GAP_SIZE;
+    float variance = 0; //[Math randomFloatBetween:0 and:maxVariance];
     
     // Bottom pipe placement
     float minBottomPosY = HEIGHT(floor) + OBSTACLE_MIN_HEIGHT - HEIGHT(self);

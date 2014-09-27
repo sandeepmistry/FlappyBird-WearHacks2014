@@ -20,6 +20,6 @@
 
 - (void) startGame;
 
-- (void)flapDetected;
+- (void)flapDetected:(float)impulse;
 
 @end

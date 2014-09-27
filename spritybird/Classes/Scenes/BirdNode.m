@@ -73,10 +73,10 @@ static bool goingUp = false;
     [self removeActionForKey:@"flapForever"];
 }
 
-- (void) bounce
+- (void) bounce:(float)impulse
 {
     [self.physicsBody setVelocity:CGVectorMake(0, 0)];
-    [self.physicsBody applyImpulse:CGVectorMake(0, 40)];
+    [self.physicsBody applyImpulse:CGVectorMake(0, impulse)];
     [self runAction:self.flap];
 }
 

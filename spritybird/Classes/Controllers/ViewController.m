@@ -176,22 +176,56 @@
 
 - (void)df1:(DF1 *)df1 didUpdateX:(float)x y:(float)y z:(float)z
 {
-    static float oldZ = 0;
+    static float oldZ = 1;
     static float oldDeltaZ = 0;
     
+    static float peakZ = 1;
+    
     float deltaZ = (oldZ - z);
-    
-    //    NSLog(@"%f", z);
-    
-    if (oldDeltaZ > 0 && deltaZ < 0) {
-        NSLog(@"FLAPPPPP");
+
+    if (deltaZ > 0 && oldDeltaZ < 0) {
+        NSLog(@"was going down, now going up");
         
-        [scene flapDetected];
+        float deltaFlap = (peakZ - z);
+        
+        if (deltaFlap > 0.4) {
+            NSLog(@"FLAP!");
+            
+            [scene flapDetected:40];
+        }
+        
+    } else if (deltaZ < 0 && oldDeltaZ > 0) {
+        NSLog(@"was going up, now going down");
+        peakZ = z;
     }
     
-    oldZ = z;
     
+    oldZ = z;
     oldDeltaZ = deltaZ;
+    
+    
+//    static float oldZ = 0;
+//    static float oldDeltaZ = 0;
+//    
+//    float deltaZ = (oldZ - z);
+//    
+//    if (fabsf(deltaZ) < 0.05) {
+//        return;
+//    }
+//
+////        NSLog(@"%f", z);
+//    
+//    NSLog(@"%f", deltaZ);
+//    
+//    if (oldDeltaZ > 0 && deltaZ < 0) {
+//        NSLog(@"FLAPPPPP");
+//        
+//        [scene flapDetected];
+//    }
+//    
+//    oldZ = z;
+//    
+//    oldDeltaZ = deltaZ;
 }
 
 @end
