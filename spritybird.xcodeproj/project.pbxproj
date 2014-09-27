@@ -42,6 +42,9 @@
 		82C6A0BE18A6F53400FEBE9B /* spritybirdTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C6A0BD18A6F53400FEBE9B /* spritybirdTests.m */; };
 		82C6A0CB18A6FF7400FEBE9B /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C6A0CA18A6FF7400FEBE9B /* SpriteKit.framework */; };
 		82FEEB9418B550BF00AA6C66 /* Main-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82FEEB9318B550BF00AA6C66 /* Main-iPad.storyboard */; };
+		AFB17B7619D7088400EE2388 /* DF1.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB17B7519D7088400EE2388 /* DF1.m */; };
+		AFB17B7919D708B500EE2388 /* DF1Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB17B7819D708B500EE2388 /* DF1Manager.m */; };
+		AFB17B7B19D708C900EE2388 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFB17B7A19D708C900EE2388 /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,11 @@
 		82C6A0E018A79B2400FEBE9B /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		82C6A0E118A79B2400FEBE9B /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		82FEEB9318B550BF00AA6C66 /* Main-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Main-iPad.storyboard"; sourceTree = "<group>"; };
+		AFB17B7419D7088400EE2388 /* DF1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DF1.h; sourceTree = "<group>"; };
+		AFB17B7519D7088400EE2388 /* DF1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DF1.m; sourceTree = "<group>"; };
+		AFB17B7719D708B500EE2388 /* DF1Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DF1Manager.h; sourceTree = "<group>"; };
+		AFB17B7819D708B500EE2388 /* DF1Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DF1Manager.m; sourceTree = "<group>"; };
+		AFB17B7A19D708C900EE2388 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB17B7B19D708C900EE2388 /* CoreBluetooth.framework in Frameworks */,
 				82C6A0CB18A6FF7400FEBE9B /* SpriteKit.framework in Frameworks */,
 				82C6A09518A6F53400FEBE9B /* CoreGraphics.framework in Frameworks */,
 				82C6A09718A6F53400FEBE9B /* UIKit.framework in Frameworks */,
@@ -183,6 +192,7 @@
 		82C6A09118A6F53400FEBE9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFB17B7A19D708C900EE2388 /* CoreBluetooth.framework */,
 				82C6A0CA18A6FF7400FEBE9B /* SpriteKit.framework */,
 				82C6A09218A6F53400FEBE9B /* Foundation.framework */,
 				82C6A09418A6F53400FEBE9B /* CoreGraphics.framework */,
@@ -282,6 +292,10 @@
 			children = (
 				8274FC2818A7E13200FEBCE7 /* Math.h */,
 				8274FC2918A7E13200FEBCE7 /* Math.m */,
+				AFB17B7419D7088400EE2388 /* DF1.h */,
+				AFB17B7519D7088400EE2388 /* DF1.m */,
+				AFB17B7719D708B500EE2388 /* DF1Manager.h */,
+				AFB17B7819D708B500EE2388 /* DF1Manager.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -412,6 +426,8 @@
 				821A756A18AD61B100B376D5 /* main.m in Sources */,
 				821A755718AD617800B376D5 /* ViewController.m in Sources */,
 				821A755818AD617800B376D5 /* Scene.m in Sources */,
+				AFB17B7919D708B500EE2388 /* DF1Manager.m in Sources */,
+				AFB17B7619D7088400EE2388 /* DF1.m in Sources */,
 				821A755918AD617800B376D5 /* SKScrollingNode.m in Sources */,
 				82B99B4618B132B40099A4FE /* Score.m in Sources */,
 				82B99B4218B1301F0099A4FE /* BirdNode.m in Sources */,

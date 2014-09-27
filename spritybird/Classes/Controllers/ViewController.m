@@ -27,6 +27,15 @@
     UIView * flash;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        self.df1Manager = [[DF1Manager alloc] initWithDelegate:self];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -126,6 +135,45 @@
     [animation setToValue:[NSValue valueWithCGPoint:
                            CGPointMake([self.view  center].x + 4.0f, [self.view  center].y)]];
     [[self.view layer] addAnimation:animation forKey:@"position"];
+}
+
+- (void)df1Manager:(DF1Manager *)manager didChangeState:(CBCentralManagerState)state
+{
+    if (state == CBCentralManagerStatePoweredOn) {
+        [self.df1Manager startScan];
+    }
+}
+
+- (void)df1Manager:(DF1Manager *)manager didDiscover:(DF1 *)df1
+{
+    if (![@"2916E8EE-9355-0A8A-1FFC-08CAEB19D201" isEqualToString:df1.uuid]) {
+        return;
+    }
+    
+    NSLog(@"df1Manager didDiscover: %@", df1.peripheral);
+    
+    [self.df1Manager stopScan];
+    
+    self.df1 = df1;
+    
+    self.df1.delegate = self;
+    
+    [self.df1Manager connect:self.df1];
+}
+
+- (void)df1Manager:(DF1Manager *)manager didConnect:(DF1 *)df1
+{
+    [self.df1 setup];
+}
+
+- (void)df1Manager:(DF1Manager *)manager didDisconnect:(DF1 *)df1
+{
+    
+}
+
+- (void)df1DidSetup:(DF1 *)df1
+{
+    NSLog(@"df1DidSetup");
 }
 
 @end
