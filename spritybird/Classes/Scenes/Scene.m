@@ -155,6 +155,21 @@ static bool wasted = NO;
     }
 }
 
+- (void)flapDetected
+{
+    if(wasted){
+        [self startGame];
+    }else{
+        if (!bird.physicsBody) {
+            [bird startPlaying];
+            if([self.delegate respondsToSelector:@selector(eventPlay)]){
+                [self.delegate eventPlay];
+            }
+        }
+        [bird bounce];
+    }
+}
+
 #pragma mark - Update & Core logic
 
 

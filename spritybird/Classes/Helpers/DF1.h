@@ -13,10 +13,9 @@
 
 @protocol DF1Delegate
 
-//- (void)df1DidConnect:(DF1 *)df1;
-//- (void)df1DidDisconnect:(DF1 *)df1;
-
 - (void)df1DidSetup:(DF1 *)df1;
+- (void)df1:(DF1 *)df1 didUpdateX:(float)x y:(float)y z:(float)z;
+
 
 @end
 

@@ -116,10 +116,7 @@
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
 //    NSLog(@"value = %@", characteristic.value);
-    
-    static float oldZ = 0;
-    static float oldDeltaZ = 0;
-    
+
     NSData *data = self.data8Characteristic.value;
     
     const int8_t* rawBytes = data.bytes;
@@ -134,19 +131,7 @@
     
 //    NSLog(@"%f %f %f", x, y, z);
     
-//    NSLog(@"%f", z);
-    
-    float deltaZ = (oldZ - z);
-    
-    if (oldDeltaZ > 0 && deltaZ < 0) {
-        NSLog(@"FLAPPPPP");
-    }
-    
-    oldZ = z;
-    
-    oldDeltaZ = deltaZ;
-    
-//    NSLog(@"%f", deltaZ);
+    [self.delegate df1:self didUpdateX:x y:y z:z];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didWriteValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error

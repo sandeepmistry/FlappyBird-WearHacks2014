@@ -20,4 +20,6 @@
 
 - (void) startGame;
 
+- (void)flapDetected;
+
 @end

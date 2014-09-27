@@ -150,8 +150,6 @@
         return;
     }
     
-    NSLog(@"df1Manager didDiscover: %@", df1.peripheral);
-    
     [self.df1Manager stopScan];
     
     self.df1 = df1;
@@ -174,6 +172,26 @@
 - (void)df1DidSetup:(DF1 *)df1
 {
     NSLog(@"df1DidSetup");
+}
+
+- (void)df1:(DF1 *)df1 didUpdateX:(float)x y:(float)y z:(float)z
+{
+    static float oldZ = 0;
+    static float oldDeltaZ = 0;
+    
+    float deltaZ = (oldZ - z);
+    
+    //    NSLog(@"%f", z);
+    
+    if (oldDeltaZ > 0 && deltaZ < 0) {
+        NSLog(@"FLAPPPPP");
+        
+        [scene flapDetected];
+    }
+    
+    oldZ = z;
+    
+    oldDeltaZ = deltaZ;
 }
 
 @end
