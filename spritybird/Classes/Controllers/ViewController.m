@@ -202,30 +202,6 @@
     
     oldZ = z;
     oldDeltaZ = deltaZ;
-    
-    
-//    static float oldZ = 0;
-//    static float oldDeltaZ = 0;
-//    
-//    float deltaZ = (oldZ - z);
-//    
-//    if (fabsf(deltaZ) < 0.05) {
-//        return;
-//    }
-//
-////        NSLog(@"%f", z);
-//    
-//    NSLog(@"%f", deltaZ);
-//    
-//    if (oldDeltaZ > 0 && deltaZ < 0) {
-//        NSLog(@"FLAPPPPP");
-//        
-//        [scene flapDetected];
-//    }
-//    
-//    oldZ = z;
-//    
-//    oldDeltaZ = deltaZ;
 }
 
 @end
